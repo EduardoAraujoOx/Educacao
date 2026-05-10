@@ -86,7 +86,11 @@ def localizar_csv_principal(zf: zipfile.ZipFile) -> str:
     nomes = zf.namelist()
     csvs = [n for n in nomes if n.lower().endswith(".csv")]
 
+    # Em 2025, o INEP passou a disponibilizar arquivos separados como
+    # Tabela_Escola_2025.csv. Em anos anteriores, o arquivo costuma aparecer
+    # como microdados_ed_basica.csv ou variações próximas.
     padroes_preferidos = [
+        r"tabela_escola_\d{4}\.csv$",
         r"microdados_ed_basica.*\.csv$",
         r"microdados_educacao_basica.*\.csv$",
         r"escolas.*\.csv$",
