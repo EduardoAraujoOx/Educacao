@@ -2,10 +2,8 @@ name: Rodar Censo ES Tempo Integral
 
 on:
   workflow_dispatch:
-
-permissions:
-  contents: write
-  actions: read
+  push:
+    branches: [main]
 
 jobs:
   processar-censo:
@@ -41,15 +39,3 @@ jobs:
         with:
           name: resultados-censo-es-tempo-integral
           path: outputs/
-
-      - name: Salvar resultados no repositório
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/
-          if git diff --cached --quiet; then
-            echo "Nenhuma alteração em outputs/."
-          else
-            git commit -m "Atualizar resultados Censo ES Tempo Integral"
-            git push
-          fi
