@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths-ignore:
+      - 'outputs/**'
+      - 'run-trigger.txt'
 
 permissions:
   contents: write
