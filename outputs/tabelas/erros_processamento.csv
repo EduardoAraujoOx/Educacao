@@ -1,2 +1,2 @@
 ﻿ano,erro
-2025,"CSV principal não encontrado. CSVs disponíveis: ['microdados_censo_escolar_2025/dados/Tabela_Curso_Tecnico_2025.csv', 'microdados_censo_escolar_2025/dados/Tabela_Docente_2025.csv', 'microdados_censo_escolar_2025/dados/Tabela_Escola_2025.csv', 'microdados_censo_escolar_2025/dados/Tabela_Gestor_Escolar_2025.csv', 'microdados_censo_escolar_2025/dados/Tabela_Matricula_2025.csv', 'microdados_censo_escolar_2025/dados/Tabela_Turma_2025.csv']"
+2025,"""Nenhuma das colunas esperadas existe: ['QT_MAT_FUND_AF']"""
