@@ -5,186 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Censo Escolar ES | Tempo Integral nos Anos Finais</title>
   <style>
-    :root {
-      --bg: #f6f8fb;
-      --card: #ffffff;
-      --ink: #172033;
-      --muted: #637083;
-      --line: #d9e1ec;
-      --blue: #1f5fbf;
-      --blue-soft: #e8f1ff;
-      --green: #16805d;
-      --amber: #a56b00;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.45;
-    }
-    header {
-      background: linear-gradient(135deg, #0c1f4a 0%, #183f8c 100%);
-      color: white;
-      padding: 42px 24px 34px;
-    }
-    .wrap { max-width: 1180px; margin: 0 auto; }
-    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; }
-    .subtitle { margin: 0; max-width: 880px; color: #dbe8ff; font-size: 17px; }
-    main { padding: 26px 24px 52px; }
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 22px 0; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 8px 20px rgba(31, 44, 71, 0.06);
-    }
-    .kpi-label { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
-    .kpi-value { font-size: 28px; font-weight: 750; letter-spacing: -0.02em; }
-    .kpi-note { margin-top: 6px; color: var(--muted); font-size: 12px; }
-    section { margin-top: 22px; }
-    h2 { font-size: 22px; margin: 0 0 12px; letter-spacing: -0.01em; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .chart-box { min-height: 310px; }
-    svg { width: 100%; height: auto; display: block; }
-    .axis { stroke: #344055; stroke-width: 1; }
-    .gridline { stroke: #e3e8f0; stroke-width: 1; }
-    .line-blue { fill: none; stroke: var(--blue); stroke-width: 3; }
-    .line-green { fill: none; stroke: var(--green); stroke-width: 3; }
-    .point-blue { fill: var(--blue); }
-    .point-green { fill: var(--green); }
-    .caption { color: var(--muted); font-size: 13px; margin-top: 10px; }
-    .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: white; }
-    table { border-collapse: collapse; width: 100%; min-width: 980px; font-size: 14px; }
-    th, td { padding: 11px 12px; border-bottom: 1px solid #e9eef5; text-align: right; }
-    th { background: #eef3fa; color: #24324c; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
-    td:first-child, th:first-child { text-align: left; font-weight: 700; }
-    tr:last-child td { border-bottom: none; }
-    .pill { display: inline-block; padding: 4px 8px; background: var(--blue-soft); color: #123d86; border-radius: 999px; font-weight: 650; }
-    .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .button {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      color: #123d86;
-      background: white;
-      text-decoration: none;
-      font-weight: 650;
-    }
-    .note {
-      background: #fff8e8;
-      border: 1px solid #f0d392;
-      border-radius: 14px;
-      padding: 14px 16px;
-      color: #543700;
-    }
-    footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
-    @media (max-width: 900px) {
-      .grid, .two-col { grid-template-columns: 1fr; }
-      main { padding: 18px 14px 42px; }
-      header { padding: 32px 18px 26px; }
-    }
+    :root{--bg:#f6f8fb;--card:#fff;--ink:#172033;--muted:#637083;--line:#d9e1ec;--blue:#1f5fbf;--blue2:#8bb7ff;--green:#16805d;--red:#b94040;--soft:#eef4ff;--amber:#9a6400}*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}header{background:linear-gradient(135deg,#0c1f4a 0%,#183f8c 100%);color:#fff;padding:42px 24px 34px}.wrap{max-width:1180px;margin:0 auto}h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px);letter-spacing:-.02em}.subtitle{margin:0;max-width:900px;color:#dbe8ff;font-size:17px}main{padding:26px 24px 52px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 20px rgba(31,44,71,.06)}.kpi-label{color:var(--muted);font-size:13px;margin-bottom:8px}.kpi-value{font-size:28px;font-weight:760;letter-spacing:-.02em}.kpi-note{margin-top:6px;color:var(--muted);font-size:12px}section{margin-top:22px}h2{font-size:22px;margin:0 0 12px;letter-spacing:-.01em}.lead{color:var(--muted);margin:0 0 14px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}.chart{height:320px;display:flex;align-items:flex-end;gap:8px;border-left:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 10px 28px 10px;position:relative}.bar-wrap{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.bar{width:68%;border-radius:7px 7px 0 0;background:var(--blue);min-height:2px}.bar.green{background:var(--green)}.bar.neg{background:var(--red);border-radius:0 0 7px 7px}.bar-label{font-size:11px;color:var(--ink);font-weight:700}.bar-year{font-size:11px;color:var(--muted);position:absolute;bottom:6px;transform:translateX(-50%)}.chart-title{font-size:14px;color:var(--muted);margin-top:10px}.axis-note{position:absolute;top:8px;left:12px;font-size:12px;color:var(--muted)}.zero-line{position:absolute;left:0;right:0;border-top:1px dashed #8a96aa}.table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:#fff}table{border-collapse:collapse;width:100%;min-width:980px;font-size:14px}th,td{padding:11px 12px;border-bottom:1px solid #e9eef5;text-align:right}th{background:#eef3fa;color:#24324c;font-size:12px;text-transform:uppercase;letter-spacing:.03em}td:first-child,th:first-child{text-align:left;font-weight:700}tr:last-child td{border-bottom:none}.pill{display:inline-block;padding:4px 8px;background:var(--soft);color:#123d86;border-radius:999px;font-weight:650}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.button{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);color:#123d86;background:#fff;text-decoration:none;font-weight:650}.note{background:#fff8e8;border:1px solid #f0d392;border-radius:14px;padding:14px 16px;color:#543700}.method{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.method-step{background:#f9fbff;border:1px solid var(--line);border-radius:14px;padding:15px}.step-number{width:28px;height:28px;border-radius:50%;background:#183f8c;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;margin-right:8px}.small{color:var(--muted);font-size:13px}.caption{color:var(--muted);font-size:13px;margin-top:10px}footer{margin-top:28px;color:var(--muted);font-size:13px}@media(max-width:900px){.grid,.two-col,.method{grid-template-columns:1fr}main{padding:18px 14px 42px}header{padding:32px 18px 26px}.chart{height:280px;gap:4px}.bar{width:80%}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <h1>Censo Escolar ES: Tempo Integral nos Anos Finais</h1>
-      <p class="subtitle">Painel preliminar gerado a partir dos microdados do Censo Escolar do INEP. Critério: escola no Espírito Santo com pelo menos uma matrícula em tempo integral nos Anos Finais do Ensino Fundamental.</p>
-    </div>
-  </header>
-
+  <header><div class="wrap"><h1>Censo Escolar ES: Tempo Integral nos Anos Finais</h1><p class="subtitle">Painel preliminar gerado a partir dos microdados do Censo Escolar do INEP. Critério: escola no Espírito Santo com pelo menos uma matrícula em tempo integral nos Anos Finais do Ensino Fundamental.</p></div></header>
   <main class="wrap">
-    <div class="note">
-      <strong>Status:</strong> tabela processada para 2015 a 2024. O Censo 2025 mudou a estrutura dos arquivos e o script já foi ajustado para nova execução. Quando o workflow gravar os novos resultados, esta página deverá ser atualizada com 2025.
-    </div>
+    <div class="note"><strong>Status:</strong> dados processados para 2015 a 2024. O Censo 2025 teve mudança de estrutura; o script já foi ajustado para nova execução. Esta página será atualizada após consolidação de 2025.</div>
 
     <div class="grid">
-      <div class="card">
-        <div class="kpi-label">Escolas estaduais com AF integral</div>
-        <div class="kpi-value">126</div>
-        <div class="kpi-note">2024</div>
-      </div>
-      <div class="card">
-        <div class="kpi-label">Matrículas estaduais AF integral</div>
-        <div class="kpi-value">23.666</div>
-        <div class="kpi-note">2024</div>
-      </div>
-      <div class="card">
-        <div class="kpi-label">% das escolas estaduais com AF integral</div>
-        <div class="kpi-value">47,5%</div>
-        <div class="kpi-note">2024</div>
-      </div>
-      <div class="card">
-        <div class="kpi-label">Crescimento das matrículas estaduais integrais</div>
-        <div class="kpi-value">+364%</div>
-        <div class="kpi-note">2019 a 2024</div>
-      </div>
+      <div class="card"><div class="kpi-label">Escolas estaduais com AF integral</div><div class="kpi-value">126</div><div class="kpi-note">2024</div></div>
+      <div class="card"><div class="kpi-label">Matrículas estaduais AF integral</div><div class="kpi-value">23.666</div><div class="kpi-note">2024</div></div>
+      <div class="card"><div class="kpi-label">% das escolas estaduais com AF integral</div><div class="kpi-value">47,5%</div><div class="kpi-note">2024</div></div>
+      <div class="card"><div class="kpi-label">Crescimento das matrículas estaduais integrais</div><div class="kpi-value">+364%</div><div class="kpi-note">2019 a 2024</div></div>
     </div>
 
-    <section class="two-col">
-      <div class="card chart-box">
-        <h2>Escolas estaduais com Anos Finais em tempo integral</h2>
-        <svg viewBox="0 0 760 360" role="img" aria-label="Linha de escolas estaduais com Anos Finais em tempo integral">
-          <line class="gridline" x1="60" y1="40" x2="720" y2="40"/><line class="gridline" x1="60" y1="110" x2="720" y2="110"/><line class="gridline" x1="60" y1="180" x2="720" y2="180"/><line class="gridline" x1="60" y1="250" x2="720" y2="250"/>
-          <line class="axis" x1="60" y1="310" x2="720" y2="310"/><line class="axis" x1="60" y1="30" x2="60" y2="310"/>
-          <text x="28" y="315" font-size="12" fill="#637083">0</text><text x="22" y="253" font-size="12" fill="#637083">30</text><text x="22" y="183" font-size="12" fill="#637083">60</text><text x="22" y="113" font-size="12" fill="#637083">90</text><text x="16" y="43" font-size="12" fill="#637083">120</text>
-          <polyline class="line-blue" points="60,44 133,252 207,243 280,217 353,212 427,172 500,134 573,34 647,3 720,15" transform="translate(0,25)"/>
-          <g fill="#1f5fbf" transform="translate(0,25)"><circle cx="60" cy="44" r="5"/><circle cx="133" cy="252" r="5"/><circle cx="207" cy="243" r="5"/><circle cx="280" cy="217" r="5"/><circle cx="353" cy="212" r="5"/><circle cx="427" cy="172" r="5"/><circle cx="500" cy="134" r="5"/><circle cx="573" cy="34" r="5"/><circle cx="647" cy="3" r="5"/><circle cx="720" cy="15" r="5"/></g>
-          <g font-size="12" fill="#637083"><text x="48" y="338">2015</text><text x="121" y="338">2016</text><text x="195" y="338">2017</text><text x="268" y="338">2018</text><text x="341" y="338">2019</text><text x="415" y="338">2020</text><text x="488" y="338">2021</text><text x="561" y="338">2022</text><text x="635" y="338">2023</text><text x="708" y="338">2024</text></g>
-        </svg>
-        <p class="caption">A série apresenta queda inicial após 2015 e expansão mais forte a partir de 2020, com salto entre 2021 e 2022.</p>
-      </div>
-      <div class="card chart-box">
-        <h2>Matrículas estaduais nos Anos Finais em tempo integral</h2>
-        <svg viewBox="0 0 760 360" role="img" aria-label="Linha de matrículas estaduais em tempo integral nos Anos Finais">
-          <line class="gridline" x1="60" y1="40" x2="720" y2="40"/><line class="gridline" x1="60" y1="110" x2="720" y2="110"/><line class="gridline" x1="60" y1="180" x2="720" y2="180"/><line class="gridline" x1="60" y1="250" x2="720" y2="250"/>
-          <line class="axis" x1="60" y1="310" x2="720" y2="310"/><line class="axis" x1="60" y1="30" x2="60" y2="310"/>
-          <text x="28" y="315" font-size="12" fill="#637083">0</text><text x="16" y="253" font-size="12" fill="#637083">5 mil</text><text x="10" y="183" font-size="12" fill="#637083">10 mil</text><text x="10" y="113" font-size="12" fill="#637083">15 mil</text><text x="10" y="43" font-size="12" fill="#637083">20 mil</text>
-          <polyline class="line-green" points="60,250 133,282 207,259 280,244 353,240 427,184 500,123 573,57 647,23 720,-4" transform="translate(0,34)"/>
-          <g fill="#16805d" transform="translate(0,34)"><circle cx="60" cy="250" r="5"/><circle cx="133" cy="282" r="5"/><circle cx="207" cy="259" r="5"/><circle cx="280" cy="244" r="5"/><circle cx="353" cy="240" r="5"/><circle cx="427" cy="184" r="5"/><circle cx="500" cy="123" r="5"/><circle cx="573" cy="57" r="5"/><circle cx="647" cy="23" r="5"/><circle cx="720" cy="-4" r="5"/></g>
-          <g font-size="12" fill="#637083"><text x="48" y="338">2015</text><text x="121" y="338">2016</text><text x="195" y="338">2017</text><text x="268" y="338">2018</text><text x="341" y="338">2019</text><text x="415" y="338">2020</text><text x="488" y="338">2021</text><text x="561" y="338">2022</text><text x="635" y="338">2023</text><text x="708" y="338">2024</text></g>
-        </svg>
-        <p class="caption">A expansão das matrículas estaduais em tempo integral nos Anos Finais é mais clara do que a expansão no número de escolas.</p>
-      </div>
-    </section>
-
     <section class="card">
-      <h2>Tabela-resumo</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Ano</th><th>Escolas estaduais com AF</th><th>Escolas estaduais AF integral</th><th>% escolas estaduais</th><th>Matrículas estaduais AF</th><th>Matrículas estaduais AF integral</th><th>% matrículas estaduais</th><th>Escolas municipais AF integral</th><th>Matrículas municipais AF integral</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>2015</td><td>294</td><td>114</td><td><span class="pill">38,8%</span></td><td>69.733</td><td>4.225</td><td>6,1%</td><td>301</td><td>18.243</td></tr>
-            <tr><td>2016</td><td>288</td><td>25</td><td><span class="pill">8,7%</span></td><td>69.576</td><td>1.963</td><td>2,8%</td><td>158</td><td>8.964</td></tr>
-            <tr><td>2017</td><td>289</td><td>29</td><td><span class="pill">10,0%</span></td><td>70.357</td><td>3.455</td><td>4,9%</td><td>163</td><td>9.102</td></tr>
-            <tr><td>2018</td><td>283</td><td>40</td><td><span class="pill">14,1%</span></td><td>72.719</td><td>4.749</td><td>6,5%</td><td>100</td><td>4.605</td></tr>
-            <tr><td>2019</td><td>286</td><td>42</td><td><span class="pill">14,7%</span></td><td>75.582</td><td>5.103</td><td>6,8%</td><td>132</td><td>6.608</td></tr>
-            <tr><td>2020</td><td>292</td><td>59</td><td><span class="pill">20,2%</span></td><td>75.121</td><td>9.800</td><td>13,0%</td><td>90</td><td>4.592</td></tr>
-            <tr><td>2021</td><td>293</td><td>75</td><td><span class="pill">25,6%</span></td><td>75.559</td><td>13.893</td><td>18,4%</td><td>85</td><td>7.471</td></tr>
-            <tr><td>2022</td><td>288</td><td>118</td><td><span class="pill">41,0%</span></td><td>71.509</td><td>18.605</td><td>26,0%</td><td>196</td><td>10.786</td></tr>
-            <tr><td>2023</td><td>282</td><td>131</td><td><span class="pill">46,5%</span></td><td>67.993</td><td>21.358</td><td>31,4%</td><td>176</td><td>10.459</td></tr>
-            <tr><td>2024</td><td>265</td><td>126</td><td><span class="pill">47,5%</span></td><td>61.106</td><td>23.666</td><td>38,7%</td><td>185</td><td>11.631</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="links">
-        <a class="button" href="https://github.com/EduardoAraujoOx/Educacao/blob/main/outputs/tabelas/es_af_tempo_integral_2015_2025.csv">Abrir CSV</a>
-        <a class="button" href="https://github.com/EduardoAraujoOx/Educacao/blob/main/outputs/tabelas/es_af_tempo_integral_2015_2025.xlsx">Abrir Excel</a>
-        <a class="button" href="https://github.com/EduardoAraujoOx/Educacao">Ver repositório</a>
+      <h2>Por que o desenho precisa considerar adoção escalonada?</h2>
+      <p class="lead">A expansão não ocorreu em um único ano. O estoque de escolas estaduais com Anos Finais em tempo integral cresceu em ondas, sobretudo a partir de 2020. Isso exige comparar escolas conforme o ano em que entraram no modelo.</p>
+      <div class="method">
+        <div class="method-step"><span class="step-number">1</span><strong>Escolas entram em anos diferentes</strong><p class="small">Cada escola tem seu próprio ano de entrada no tempo integral.</p></div>
+        <div class="method-step"><span class="step-number">2</span><strong>Comparação usa escolas ainda não tratadas</strong><p class="small">Uma escola que ainda não entrou pode servir como comparação naquele ano.</p></div>
+        <div class="method-step"><span class="step-number">3</span><strong>O método estima efeitos por coorte</strong><p class="small">Depois os efeitos são agregados por tempo de exposição ao programa.</p></div>
       </div>
     </section>
 
-    <footer>
-      Fonte: microdados do Censo Escolar/INEP, processados por rotina reprodutível em Python. Esta página é uma visualização preliminar para apoio à proposta de pesquisa. Para avaliação causal, o ano efetivo de entrada de cada escola no programa estadual deve ser validado com registros administrativos da SEDU.
-    </footer>
+    <section class="two-col">
+      <div class="card">
+        <h2>Estoque de escolas estaduais com AF integral</h2>
+        <div class="chart" aria-label="Estoque de escolas estaduais com Anos Finais em tempo integral">
+          <div class="axis-note">nº de escolas</div>
+          <div class="bar-wrap"><div class="bar-label">114</div><div class="bar" style="height:87%"></div><span class="bar-year" style="left:7%">2015</span></div>
+          <div class="bar-wrap"><div class="bar-label">25</div><div class="bar" style="height:19%"></div><span class="bar-year" style="left:16.5%">2016</span></div>
+          <div class="bar-wrap"><div class="bar-label">29</div><div class="bar" style="height:22%"></div><span class="bar-year" style="left:26%">2017</span></div>
+          <div class="bar-wrap"><div class="bar-label">40</div><div class="bar" style="height:31%"></div><span class="bar-year" style="left:35.5%">2018</span></div>
+          <div class="bar-wrap"><div class="bar-label">42</div><div class="bar" style="height:32%"></div><span class="bar-year" style="left:45%">2019</span></div>
+          <div class="bar-wrap"><div class="bar-label">59</div><div class="bar" style="height:45%"></div><span class="bar-year" style="left:54.5%">2020</span></div>
+          <div class="bar-wrap"><div class="bar-label">75</div><div class="bar" style="height:57%"></div><span class="bar-year" style="left:64%">2021</span></div>
+          <div class="bar-wrap"><div class="bar-label">118</div><div class="bar" style="height:90%"></div><span class="bar-year" style="left:73.5%">2022</span></div>
+          <div class="bar-wrap"><div class="bar-label">131</div><div class="bar" style="height:100%"></div><span class="bar-year" style="left:83%">2023</span></div>
+          <div class="bar-wrap"><div class="bar-label">126</div><div class="bar" style="height:96%"></div><span class="bar-year" style="left:92.5%">2024</span></div>
+        </div>
+        <p class="caption">Este gráfico mostra o estoque anual de escolas com ao menos uma matrícula integral nos Anos Finais.</p>
+      </div>
+      <div class="card">
+        <h2>Variação líquida anual no número de escolas</h2>
+        <div class="chart" aria-label="Variação líquida anual de escolas estaduais com Anos Finais em tempo integral">
+          <div class="axis-note">diferença em relação ao ano anterior</div>
+          <div class="zero-line" style="top:52%"></div>
+          <div class="bar-wrap"><div class="bar-label">-89</div><div class="bar neg" style="height:48%"></div><span class="bar-year" style="left:9%">2016</span></div>
+          <div class="bar-wrap"><div class="bar-label">+4</div><div class="bar green" style="height:5%"></div><span class="bar-year" style="left:19.25%">2017</span></div>
+          <div class="bar-wrap"><div class="bar-label">+11</div><div class="bar green" style="height:13%"></div><span class="bar-year" style="left:29.5%">2018</span></div>
+          <div class="bar-wrap"><div class="bar-label">+2</div><div class="bar green" style="height:3%"></div><span class="bar-year" style="left:39.75%">2019</span></div>
+          <div class="bar-wrap"><div class="bar-label">+17</div><div class="bar green" style="height:20%"></div><span class="bar-year" style="left:50%">2020</span></div>
+          <div class="bar-wrap"><div class="bar-label">+16</div><div class="bar green" style="height:19%"></div><span class="bar-year" style="left:60.25%">2021</span></div>
+          <div class="bar-wrap"><div class="bar-label">+43</div><div class="bar green" style="height:49%"></div><span class="bar-year" style="left:70.5%">2022</span></div>
+          <div class="bar-wrap"><div class="bar-label">+13</div><div class="bar green" style="height:15%"></div><span class="bar-year" style="left:80.75%">2023</span></div>
+          <div class="bar-wrap"><div class="bar-label">-5</div><div class="bar neg" style="height:6%"></div><span class="bar-year" style="left:91%">2024</span></div>
+        </div>
+        <p class="caption">A variação é líquida: ela indica mudança no estoque, não necessariamente o número exato de novas escolas tratadas. A identificação das coortes exige a base escola-ano.</p>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="card"><h2>Matrículas estaduais AF integral</h2><div class="chart" aria-label="Matrículas estaduais em tempo integral nos Anos Finais"><div class="axis-note">nº de matrículas</div><div class="bar-wrap"><div class="bar-label">4.225</div><div class="bar green" style="height:18%"></div><span class="bar-year" style="left:7%">2015</span></div><div class="bar-wrap"><div class="bar-label">1.963</div><div class="bar green" style="height:8%"></div><span class="bar-year" style="left:16.5%">2016</span></div><div class="bar-wrap"><div class="bar-label">3.455</div><div class="bar green" style="height:15%"></div><span class="bar-year" style="left:26%">2017</span></div><div class="bar-wrap"><div class="bar-label">4.749</div><div class="bar green" style="height:20%"></div><span class="bar-year" style="left:35.5%">2018</span></div><div class="bar-wrap"><div class="bar-label">5.103</div><div class="bar green" style="height:22%"></div><span class="bar-year" style="left:45%">2019</span></div><div class="bar-wrap"><div class="bar-label">9.800</div><div class="bar green" style="height:41%"></div><span class="bar-year" style="left:54.5%">2020</span></div><div class="bar-wrap"><div class="bar-label">13.893</div><div class="bar green" style="height:59%"></div><span class="bar-year" style="left:64%">2021</span></div><div class="bar-wrap"><div class="bar-label">18.605</div><div class="bar green" style="height:79%"></div><span class="bar-year" style="left:73.5%">2022</span></div><div class="bar-wrap"><div class="bar-label">21.358</div><div class="bar green" style="height:90%"></div><span class="bar-year" style="left:83%">2023</span></div><div class="bar-wrap"><div class="bar-label">23.666</div><div class="bar green" style="height:100%"></div><span class="bar-year" style="left:92.5%">2024</span></div></div><p class="caption">As matrículas mostram expansão quase contínua a partir de 2019.</p></div>
+      <div class="card"><h2>Uso na metodologia</h2><p>A tabela agregada demonstra que a política se expandiu por ondas. O próximo produto metodológico deve ser uma base <strong>escola-ano</strong>, com código INEP, município, matrículas nos Anos Finais, matrículas em tempo integral e o primeiro ano em que cada escola passou a aparecer como integral.</p><p>Essa base permitirá construir coortes de entrada e aplicar diferenças-em-diferenças com adoção escalonada, comparando cada coorte com escolas ainda não tratadas no mesmo período.</p></div>
+    </section>
+
+    <section class="card"><h2>Tabela-resumo</h2><div class="table-wrap"><table><thead><tr><th>Ano</th><th>Escolas estaduais com AF</th><th>Escolas estaduais AF integral</th><th>% escolas estaduais</th><th>Matrículas estaduais AF</th><th>Matrículas estaduais AF integral</th><th>% matrículas estaduais</th><th>Escolas municipais AF integral</th><th>Matrículas municipais AF integral</th></tr></thead><tbody><tr><td>2015</td><td>294</td><td>114</td><td><span class="pill">38,8%</span></td><td>69.733</td><td>4.225</td><td>6,1%</td><td>301</td><td>18.243</td></tr><tr><td>2016</td><td>288</td><td>25</td><td><span class="pill">8,7%</span></td><td>69.576</td><td>1.963</td><td>2,8%</td><td>158</td><td>8.964</td></tr><tr><td>2017</td><td>289</td><td>29</td><td><span class="pill">10,0%</span></td><td>70.357</td><td>3.455</td><td>4,9%</td><td>163</td><td>9.102</td></tr><tr><td>2018</td><td>283</td><td>40</td><td><span class="pill">14,1%</span></td><td>72.719</td><td>4.749</td><td>6,5%</td><td>100</td><td>4.605</td></tr><tr><td>2019</td><td>286</td><td>42</td><td><span class="pill">14,7%</span></td><td>75.582</td><td>5.103</td><td>6,8%</td><td>132</td><td>6.608</td></tr><tr><td>2020</td><td>292</td><td>59</td><td><span class="pill">20,2%</span></td><td>75.121</td><td>9.800</td><td>13,0%</td><td>90</td><td>4.592</td></tr><tr><td>2021</td><td>293</td><td>75</td><td><span class="pill">25,6%</span></td><td>75.559</td><td>13.893</td><td>18,4%</td><td>85</td><td>7.471</td></tr><tr><td>2022</td><td>288</td><td>118</td><td><span class="pill">41,0%</span></td><td>71.509</td><td>18.605</td><td>26,0%</td><td>196</td><td>10.786</td></tr><tr><td>2023</td><td>282</td><td>131</td><td><span class="pill">46,5%</span></td><td>67.993</td><td>21.358</td><td>31,4%</td><td>176</td><td>10.459</td></tr><tr><td>2024</td><td>265</td><td>126</td><td><span class="pill">47,5%</span></td><td>61.106</td><td>23.666</td><td>38,7%</td><td>185</td><td>11.631</td></tr></tbody></table></div><div class="links"><a class="button" href="https://github.com/EduardoAraujoOx/Educacao/blob/main/outputs/tabelas/es_af_tempo_integral_2015_2025.csv">Abrir CSV</a><a class="button" href="https://github.com/EduardoAraujoOx/Educacao/blob/main/outputs/tabelas/es_af_tempo_integral_2015_2025.xlsx">Abrir Excel</a><a class="button" href="https://github.com/EduardoAraujoOx/Educacao">Ver repositório</a></div></section>
+
+    <footer>Fonte: microdados do Censo Escolar/INEP, processados por rotina reprodutível em Python. Esta página é uma visualização preliminar. Para avaliação causal, o ano efetivo de entrada de cada escola no programa estadual deve ser validado com registros administrativos da SEDU.</footer>
   </main>
 </body>
 </html>
