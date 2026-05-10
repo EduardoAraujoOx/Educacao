@@ -18,6 +18,7 @@ from pathlib import Path
 
 import pandas as pd
 import requests
+import urllib3
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -40,8 +41,6 @@ URLS = {
     2025: "https://download.inep.gov.br/microdados/micro_censo_escolar_2025.zip",
 }
 
-# Alguns anos do INEP aparecem com caminhos alternativos. A rotina testa estes
-# caminhos caso o endereço principal falhe.
 URLS_ALTERNATIVAS = {
     ano: [
         f"https://download.inep.gov.br/dados_abertos/microdados_censo_escolar_{ano}.zip",
@@ -54,16 +53,23 @@ URLS_ALTERNATIVAS[2025].append(
     "https://download.inep.gov.br/dados_abertos/microdados_censo_escolar_2025_.zip"
 )
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 def baixar_zip(ano: int) -> bytes:
-    """Baixa o ZIP do Censo Escolar para um ano."""
+    """Baixa o ZIP do Censo Escolar para um ano.
+
+    O servidor do INEP pode apresentar falha de cadeia de certificado em alguns
+    ambientes Linux. Por isso, a rotina desabilita a verificação SSL apenas para
+    este download de arquivos públicos oficiais.
+    """
     urls = [URLS[ano], *URLS_ALTERNATIVAS.get(ano, [])]
     ultimo_erro: Exception | None = None
 
     for url in urls:
         try:
             logging.info("Baixando %s: %s", ano, url)
-            resp = requests.get(url, timeout=180)
+            resp = requests.get(url, timeout=180, verify=False)
             resp.raise_for_status()
             if len(resp.content) < 1_000_000:
                 raise ValueError("arquivo baixado parece pequeno demais")
