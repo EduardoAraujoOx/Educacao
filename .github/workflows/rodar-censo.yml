@@ -48,19 +48,24 @@ jobs:
       - name: Gerar página Markdown de resultados
         run: python scripts/03_gerar_markdown_resultados.py
 
+      - name: Gerar site HTML
+        run: python scripts/04_gerar_site.py
+
       - name: Publicar resultados como artefato
         uses: actions/upload-artifact@v4
         with:
           name: resultados-censo-es-tempo-integral
-          path: outputs/
+          path: |
+            outputs/
+            docs/
 
       - name: Salvar resultados no repositório
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/
+          git add outputs/ docs/
           if git diff --cached --quiet; then
-            echo "Nenhuma alteração em outputs/."
+            echo "Nenhuma alteração em outputs/ ou docs/."
             exit 0
           fi
           git commit -m "Atualizar resultados Censo ES Tempo Integral"
