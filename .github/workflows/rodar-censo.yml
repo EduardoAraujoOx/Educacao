@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -53,7 +55,14 @@ jobs:
           path: outputs/
 
       - name: Salvar resultados no repositório
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Atualizar resultados Censo ES Tempo Integral
-          file_pattern: outputs/**
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração em outputs/."
+            exit 0
+          fi
+          git commit -m "Atualizar resultados Censo ES Tempo Integral"
+          git pull --rebase origin main
+          git push origin HEAD:main
