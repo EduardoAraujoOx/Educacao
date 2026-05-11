@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amostra escalonada | Tempo integral ES</title>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#f6f8fb;color:#172033;line-height:1.45}header{background:#183f8c;color:white;padding:34px 20px}.wrap{max-width:1180px;margin:auto}main{padding:22px 16px 44px}.card{background:white;border:1px solid #d9e1ec;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 6px 18px rgba(31,44,71,.06)}.note{background:#fff8e8;border-color:#f0d392;color:#543700}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.kpi{font-size:30px;font-weight:760}.muted{color:#637083}.tablewrap{overflow-x:auto;border:1px solid #d9e1ec;border-radius:12px}table{border-collapse:collapse;width:100%;min-width:1220px;background:white;font-size:13px}th,td{padding:9px 10px;border-bottom:1px solid #e9eef5;text-align:right;vertical-align:top}th{background:#eef3fa;color:#24324c;font-size:11px;text-transform:uppercase;letter-spacing:.03em}td:first-child,th:first-child,td:nth-child(2),th:nth-child(2),td:nth-child(3),th:nth-child(3){text-align:left}.pre{background:#fafbfd}.zero{background:#e8f1ff;font-weight:700}.post{background:#f2fbf6}.button{display:inline-block;padding:10px 14px;border:1px solid #d9e1ec;border-radius:9px;color:#123d86;background:white;text-decoration:none;font-weight:650;margin-right:8px}@media(max-width:850px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Amostra escalonada: tratamento e controle por tempo relativo</h1><p>Recorte preliminar: rede estadual do Espírito Santo, Anos Finais do Ensino Fundamental, 2016 a 2024. O ano de 2015 é preservado como marco zero histórico.</p></div></header>
+<main class="wrap">
+<section class="card note"><strong>Como ler:</strong> cada coorte é formada pelas escolas que aparecem pela primeira vez como tempo integral em determinado ano. O ano de entrada é t = 0. Anos anteriores são pré-tratamento; anos posteriores são pós-tratamento. A coluna “controle potencial” mostra escolas ainda não tratadas naquele ano, na janela operacional 2016 a 2024. As matrículas expostas e não expostas são totais agregados da rede no ano calendário; a versão final deverá recalcular essas matrículas por coorte de escola.</section>
+<section class="grid"><div class="card"><div class="muted">Marco zero</div><div class="kpi">2015</div><div class="muted">histórico, fora da matriz principal</div></div><div class="card"><div class="muted">Primeiro ano operacional</div><div class="kpi">2016</div><div class="muted">base para identificar coortes</div></div><div class="card"><div class="muted">Coortes observadas</div><div class="kpi">2017-2024</div><div class="muted">entrada escalonada</div></div><div class="card"><div class="muted">Pré e pós</div><div class="kpi">t -3 a t +3</div><div class="muted">janela de evento</div></div></section>
+<section class="card"><h2>Tabela-resumo das coortes</h2><div class="tablewrap"><table><thead><tr><th>Coorte</th><th>Novas escolas tratadas</th><th>Controle potencial no ano de entrada</th><th>Matrículas expostas na rede em t = 0</th><th>Matrículas não expostas na rede em t = 0</th><th>Leitura</th></tr></thead><tbody><tr><td>2017</td><td>11</td><td>253</td><td>3.455</td><td>66.902</td><td>coorte inicial pós-2016</td></tr><tr><td>2018</td><td>11</td><td>237</td><td>4.749</td><td>67.970</td><td>coorte de consolidação inicial</td></tr><tr><td>2019</td><td>7</td><td>233</td><td>5.103</td><td>70.479</td><td>ano-base da janela recente</td></tr><tr><td>2020</td><td>20</td><td>219</td><td>9.800</td><td>65.321</td><td>primeira onda mais visível</td></tr><tr><td>2021</td><td>18</td><td>201</td><td>13.893</td><td>61.666</td><td>continuidade da expansão</td></tr><tr><td>2022</td><td>45</td><td>154</td><td>18.605</td><td>52.904</td><td>maior coorte observada</td></tr><tr><td>2023</td><td>27</td><td>124</td><td>21.358</td><td>46.635</td><td>expansão adicional</td></tr><tr><td>2024</td><td>15</td><td>99</td><td>23.666</td><td>37.440</td><td>coorte recente, sem pós-tratamento observado</td></tr></tbody></table></div></section>
+<section class="card"><h2>Matriz de comparação no tempo relativo</h2><div class="tablewrap"><table><thead><tr><th>Coorte tratada</th><th>N escolas da coorte</th><th>Tempo relativo</th><th>Ano calendário</th><th>Status da coorte</th><th>Controle potencial no mesmo ano</th><th>Matrículas expostas na rede</th><th>Matrículas não expostas na rede</th></tr></thead><tbody>
+<tr class="pre"><td>Entrada em 2017</td><td>11</td><td>t = -2</td><td>2015</td><td>pré, marco zero histórico</td><td>180</td><td>4.225</td><td>65.508</td></tr>
+<tr class="pre"><td>Entrada em 2017</td><td>11</td><td>t = -1</td><td>2016</td><td>pré</td><td>263</td><td>1.963</td><td>67.613</td></tr>
+<tr class="zero"><td>Entrada em 2017</td><td>11</td><td>t = 0</td><td>2017</td><td>entrada no tratamento</td><td>253</td><td>3.455</td><td>66.902</td></tr>
+<tr class="post"><td>Entrada em 2017</td><td>11</td><td>t = +1</td><td>2018</td><td>pós</td><td>237</td><td>4.749</td><td>67.970</td></tr>
+<tr class="post"><td>Entrada em 2017</td><td>11</td><td>t = +2</td><td>2019</td><td>pós</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="post"><td>Entrada em 2017</td><td>11</td><td>t = +3</td><td>2020</td><td>pós</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="pre"><td>Entrada em 2018</td><td>11</td><td>t = -3</td><td>2015</td><td>pré, marco zero histórico</td><td>180</td><td>4.225</td><td>65.508</td></tr>
+<tr class="pre"><td>Entrada em 2018</td><td>11</td><td>t = -2</td><td>2016</td><td>pré</td><td>263</td><td>1.963</td><td>67.613</td></tr>
+<tr class="pre"><td>Entrada em 2018</td><td>11</td><td>t = -1</td><td>2017</td><td>pré</td><td>253</td><td>3.455</td><td>66.902</td></tr>
+<tr class="zero"><td>Entrada em 2018</td><td>11</td><td>t = 0</td><td>2018</td><td>entrada no tratamento</td><td>237</td><td>4.749</td><td>67.970</td></tr>
+<tr class="post"><td>Entrada em 2018</td><td>11</td><td>t = +1</td><td>2019</td><td>pós</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="post"><td>Entrada em 2018</td><td>11</td><td>t = +2</td><td>2020</td><td>pós</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="post"><td>Entrada em 2018</td><td>11</td><td>t = +3</td><td>2021</td><td>pós</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="pre"><td>Entrada em 2019</td><td>7</td><td>t = -3</td><td>2016</td><td>pré</td><td>263</td><td>1.963</td><td>67.613</td></tr>
+<tr class="pre"><td>Entrada em 2019</td><td>7</td><td>t = -2</td><td>2017</td><td>pré</td><td>253</td><td>3.455</td><td>66.902</td></tr>
+<tr class="pre"><td>Entrada em 2019</td><td>7</td><td>t = -1</td><td>2018</td><td>pré</td><td>237</td><td>4.749</td><td>67.970</td></tr>
+<tr class="zero"><td>Entrada em 2019</td><td>7</td><td>t = 0</td><td>2019</td><td>entrada no tratamento</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="post"><td>Entrada em 2019</td><td>7</td><td>t = +1</td><td>2020</td><td>pós</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="post"><td>Entrada em 2019</td><td>7</td><td>t = +2</td><td>2021</td><td>pós</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="post"><td>Entrada em 2019</td><td>7</td><td>t = +3</td><td>2022</td><td>pós</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="pre"><td>Entrada em 2020</td><td>20</td><td>t = -3</td><td>2017</td><td>pré</td><td>253</td><td>3.455</td><td>66.902</td></tr>
+<tr class="pre"><td>Entrada em 2020</td><td>20</td><td>t = -2</td><td>2018</td><td>pré</td><td>237</td><td>4.749</td><td>67.970</td></tr>
+<tr class="pre"><td>Entrada em 2020</td><td>20</td><td>t = -1</td><td>2019</td><td>pré</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="zero"><td>Entrada em 2020</td><td>20</td><td>t = 0</td><td>2020</td><td>entrada no tratamento</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="post"><td>Entrada em 2020</td><td>20</td><td>t = +1</td><td>2021</td><td>pós</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="post"><td>Entrada em 2020</td><td>20</td><td>t = +2</td><td>2022</td><td>pós</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="post"><td>Entrada em 2020</td><td>20</td><td>t = +3</td><td>2023</td><td>pós</td><td>124</td><td>21.358</td><td>46.635</td></tr>
+<tr class="pre"><td>Entrada em 2021</td><td>18</td><td>t = -3</td><td>2018</td><td>pré</td><td>237</td><td>4.749</td><td>67.970</td></tr>
+<tr class="pre"><td>Entrada em 2021</td><td>18</td><td>t = -2</td><td>2019</td><td>pré</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="pre"><td>Entrada em 2021</td><td>18</td><td>t = -1</td><td>2020</td><td>pré</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="zero"><td>Entrada em 2021</td><td>18</td><td>t = 0</td><td>2021</td><td>entrada no tratamento</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="post"><td>Entrada em 2021</td><td>18</td><td>t = +1</td><td>2022</td><td>pós</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="post"><td>Entrada em 2021</td><td>18</td><td>t = +2</td><td>2023</td><td>pós</td><td>124</td><td>21.358</td><td>46.635</td></tr>
+<tr class="post"><td>Entrada em 2021</td><td>18</td><td>t = +3</td><td>2024</td><td>pós</td><td>99</td><td>23.666</td><td>37.440</td></tr>
+<tr class="pre"><td>Entrada em 2022</td><td>45</td><td>t = -3</td><td>2019</td><td>pré</td><td>233</td><td>5.103</td><td>70.479</td></tr>
+<tr class="pre"><td>Entrada em 2022</td><td>45</td><td>t = -2</td><td>2020</td><td>pré</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="pre"><td>Entrada em 2022</td><td>45</td><td>t = -1</td><td>2021</td><td>pré</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="zero"><td>Entrada em 2022</td><td>45</td><td>t = 0</td><td>2022</td><td>entrada no tratamento</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="post"><td>Entrada em 2022</td><td>45</td><td>t = +1</td><td>2023</td><td>pós</td><td>124</td><td>21.358</td><td>46.635</td></tr>
+<tr class="post"><td>Entrada em 2022</td><td>45</td><td>t = +2</td><td>2024</td><td>pós</td><td>99</td><td>23.666</td><td>37.440</td></tr>
+<tr class="pre"><td>Entrada em 2023</td><td>27</td><td>t = -3</td><td>2020</td><td>pré</td><td>219</td><td>9.800</td><td>65.321</td></tr>
+<tr class="pre"><td>Entrada em 2023</td><td>27</td><td>t = -2</td><td>2021</td><td>pré</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="pre"><td>Entrada em 2023</td><td>27</td><td>t = -1</td><td>2022</td><td>pré</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="zero"><td>Entrada em 2023</td><td>27</td><td>t = 0</td><td>2023</td><td>entrada no tratamento</td><td>124</td><td>21.358</td><td>46.635</td></tr>
+<tr class="post"><td>Entrada em 2023</td><td>27</td><td>t = +1</td><td>2024</td><td>pós</td><td>99</td><td>23.666</td><td>37.440</td></tr>
+<tr class="pre"><td>Entrada em 2024</td><td>15</td><td>t = -3</td><td>2021</td><td>pré</td><td>201</td><td>13.893</td><td>61.666</td></tr>
+<tr class="pre"><td>Entrada em 2024</td><td>15</td><td>t = -2</td><td>2022</td><td>pré</td><td>154</td><td>18.605</td><td>52.904</td></tr>
+<tr class="pre"><td>Entrada em 2024</td><td>15</td><td>t = -1</td><td>2023</td><td>pré</td><td>124</td><td>21.358</td><td>46.635</td></tr>
+<tr class="zero"><td>Entrada em 2024</td><td>15</td><td>t = 0</td><td>2024</td><td>entrada no tratamento</td><td>99</td><td>23.666</td><td>37.440</td></tr>
+</tbody></table></div><p class="muted">Esta matriz mostra a amostra de comparação no tempo relativo em termos de número de escolas. As matrículas ainda aparecem como escala agregada por ano; para obter matrícula tratada e controle por coorte, será necessário somar matrículas das escolas de cada coorte e das escolas ainda não tratadas no mesmo ano.</p></section>
+<section class="card"><h2>Como isso entra na proposta</h2><p>A tabela-resumo das coortes pode entrar no corpo da metodologia. A matriz completa pode ir em apêndice metodológico ou material suplementar. Ela explicita exatamente quais coortes serão comparadas com quais grupos de controle potenciais em cada tempo relativo.</p><p><a class="button" href="metodologia_matriculas.html">Voltar à página de matrículas</a><a class="button" href="index.html">Painel principal</a></p></section>
+</main>
+</body>
+</html>
