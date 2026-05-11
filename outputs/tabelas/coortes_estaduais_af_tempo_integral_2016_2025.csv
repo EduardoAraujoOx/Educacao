@@ -1,0 +1,10 @@
+﻿ano,estoque_inicial_no_ano_base,novas_escolas_tratadas_observadas,escolas_ainda_nao_tratadas_no_ano,escolas_nunca_tratadas_ate_fim_da_janela,estoque_tratado_acumulado,matriculas_estaduais_af_integral
+2016,25,0,263,128,25,1963
+2017,0,11,253,127,29,3455
+2018,0,11,237,121,40,4749
+2019,0,7,233,120,42,5103
+2020,0,20,219,118,59,9800
+2021,0,18,201,115,75,13893
+2022,0,45,154,113,118,18605
+2023,0,27,124,110,131,21358
+2024,0,15,99,99,126,23666
