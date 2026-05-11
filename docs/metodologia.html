@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologia | Adoção escalonada</title>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#f6f8fb;color:#172033;line-height:1.45}header{background:#183f8c;color:white;padding:36px 22px}.wrap{max-width:1120px;margin:auto}main{padding:24px 18px 48px}.card{background:white;border:1px solid #d9e1ec;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 6px 18px rgba(31,44,71,.06)}h1{margin:0 0 8px;font-size:34px}h2{margin:0 0 12px}.subtitle{color:#dbe8ff;max-width:880px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.kpi{font-size:28px;font-weight:750}.muted{color:#637083}.chart{height:300px;display:flex;align-items:flex-end;gap:9px;border-left:1px solid #d9e1ec;border-bottom:1px solid #d9e1ec;padding:12px 10px 30px}.barwrap{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}.bar{width:72%;border-radius:7px 7px 0 0;background:#1f5fbf;min-height:3px}.bar.purple{background:#6b4bb8}.barlabel{font-size:12px;font-weight:700}.year{font-size:12px;color:#637083}table{border-collapse:collapse;width:100%;min-width:860px}th,td{padding:10px;border-bottom:1px solid #e9eef5;text-align:right}th{background:#eef3fa;text-transform:uppercase;font-size:12px}td:first-child,th:first-child{text-align:left;font-weight:700}.tablewrap{overflow-x:auto}.button{display:inline-block;padding:10px 14px;border-radius:9px;border:1px solid #d9e1ec;background:white;color:#123d86;text-decoration:none;font-weight:650;margin-right:8px}@media(max-width:850px){.grid{grid-template-columns:1fr}.chart{height:260px;gap:4px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Metodologia: adoção escalonada</h1><p class="subtitle">Página estática com dados já processados de 2016 a 2024. O objetivo é mostrar por que a avaliação deve tratar a expansão do tempo integral como uma política implantada em ondas.</p></div></header>
+<main class="wrap">
+<div class="card"><strong>Nota:</strong> esta página usa a variação líquida do estoque como ilustração preliminar. A tabela definitiva de coortes reais exige base escola-ano, com código INEP de cada escola e primeiro ano de entrada observado.</div>
+<div class="grid">
+<div class="card"><div class="muted">Maior salto no estoque</div><div class="kpi">+43</div><div class="muted">2022</div></div>
+<div class="card"><div class="muted">Estoque tratado em 2024</div><div class="kpi">126</div><div class="muted">escolas estaduais</div></div>
+<div class="card"><div class="muted">Matrículas integrais em 2024</div><div class="kpi">23.666</div><div class="muted">Anos Finais</div></div>
+</div>
+<div class="card"><h2>Lógica da identificação</h2><p>A expansão observada não corresponde a uma intervenção única. O desenho deve comparar escolas conforme o ano de entrada no tempo integral e usar, em cada período, escolas ainda não tratadas como grupo de comparação.</p><p><strong>Escola-ano → ano de entrada → coorte → comparação com ainda não tratadas.</strong></p></div>
+<div class="grid">
+<div class="card" style="grid-column:span 2"><h2>Variação líquida anual no estoque</h2><div class="chart"><div class="barwrap"><div class="barlabel">+4</div><div class="bar" style="height:9%"></div><div class="year">2017</div></div><div class="barwrap"><div class="barlabel">+11</div><div class="bar" style="height:26%"></div><div class="year">2018</div></div><div class="barwrap"><div class="barlabel">+2</div><div class="bar" style="height:5%"></div><div class="year">2019</div></div><div class="barwrap"><div class="barlabel">+17</div><div class="bar" style="height:40%"></div><div class="year">2020</div></div><div class="barwrap"><div class="barlabel">+16</div><div class="bar" style="height:37%"></div><div class="year">2021</div></div><div class="barwrap"><div class="barlabel">+43</div><div class="bar" style="height:100%"></div><div class="year">2022</div></div><div class="barwrap"><div class="barlabel">+13</div><div class="bar" style="height:30%"></div><div class="year">2023</div></div><div class="barwrap"><div class="barlabel">-5</div><div class="bar" style="height:12%"></div><div class="year">2024</div></div></div><p class="muted">Esse gráfico não é a coorte real, mas mostra a razão visual para a adoção escalonada.</p></div>
+<div class="card"><h2>Uso no texto</h2><p>Use este painel para justificar que o método não deve assumir uma única data de tratamento. A política cresce em ondas, com forte salto em 2022.</p></div>
+</div>
+<div class="card"><h2>Tabela metodológica preliminar</h2><div class="tablewrap"><table><thead><tr><th>Ano</th><th>Estoque tratado</th><th>Variação líquida</th><th>Matrículas integrais</th><th>Leitura</th></tr></thead><tbody><tr><td>2016</td><td>25</td><td>-89</td><td>1.963</td><td>início da janela sem 2015</td></tr><tr><td>2017</td><td>29</td><td>+4</td><td>3.455</td><td>pequena expansão</td></tr><tr><td>2018</td><td>40</td><td>+11</td><td>4.749</td><td>expansão moderada</td></tr><tr><td>2019</td><td>42</td><td>+2</td><td>5.103</td><td>ano-base plausível</td></tr><tr><td>2020</td><td>59</td><td>+17</td><td>9.800</td><td>nova onda</td></tr><tr><td>2021</td><td>75</td><td>+16</td><td>13.893</td><td>continuidade</td></tr><tr><td>2022</td><td>118</td><td>+43</td><td>18.605</td><td>maior salto</td></tr><tr><td>2023</td><td>131</td><td>+13</td><td>21.358</td><td>expansão adicional</td></tr><tr><td>2024</td><td>126</td><td>-5</td><td>23.666</td><td>estoque estabiliza, matrículas crescem</td></tr></tbody></table></div></div>
+<p><a class="button" href="index.html">Voltar ao painel principal</a><a class="button" href="https://github.com/EduardoAraujoOx/Educacao">Ver repositório</a></p>
+</main>
+</body>
+</html>
